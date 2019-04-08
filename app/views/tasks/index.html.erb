@@ -1,0 +1,10 @@
+<h2>My Task List</h2>
+
+<ul>
+  <% @tasks.each do |task|%>
+  <li>
+    <%=task[:name]%> due by <%=task[:day_due]%>
+  </li>
+
+<%end%>
+</ul>

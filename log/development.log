@@ -2,3 +2,98 @@
   ↳ bin/rails:9
   [1m[35m (442.0ms)[0m  [1m[35mCREATE DATABASE "TaskList_test" ENCODING = 'unicode'[0m
   ↳ bin/rails:9
+Started GET "/books" for ::1 at 2019-04-08 14:24:32 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/books"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/tasks" for ::1 at 2019-04-08 14:24:37 -0700
+Processing by TasksController#index as HTML
+Completed 406 Not Acceptable in 157ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - TasksController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/504a96c7ed599ab8/variables" for ::1 at 2019-04-08 14:24:38 -0700
+Started GET "/" for ::1 at 2019-04-08 14:25:51 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/aribray/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/aribray/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (4.2ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-08 14:25:55 -0700
+Processing by TasksController#index as HTML
+Completed 406 Not Acceptable in 155ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UnknownFormat - TasksController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/7c7359aed27f3332/variables" for ::1 at 2019-04-08 14:25:56 -0700
+Started GET "/tasks" for ::1 at 2019-04-08 14:27:32 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 460ms (Views: 452.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2019-04-08 14:29:59 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (356.8ms)
+Completed 500 Internal Server Error in 372ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `tasks' for #<#<Class:0x00007f9e5e8fb390>:0x00007f9e5e8f9a18>
+Did you mean?  task
+               @tasks:
+  app/views/tasks/index.html.erb:6:in `block in _app_views_tasks_index_html_erb___2543670909170345197_70159084019140'
+  app/views/tasks/index.html.erb:4:in `_app_views_tasks_index_html_erb___2543670909170345197_70159084019140'
+
+Started POST "/__better_errors/dac3e91560a93f5a/variables" for ::1 at 2019-04-08 14:30:00 -0700
+Started GET "/tasks" for ::1 at 2019-04-08 14:30:07 -0700
+Processing by TasksController#index as HTML
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
