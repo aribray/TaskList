@@ -1,0 +1,19 @@
+ul {
+  flex-direction: column;
+  list-style-type: none;
+}
+
+ul li a {
+  font-size: 2rem;
+  color: gray;
+  text-decoration: none;
+}
+
+a:hover {
+  color: tomato;
+}
+
+.task {
+  padding: 10px;
+}
+

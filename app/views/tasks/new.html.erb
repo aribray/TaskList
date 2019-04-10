@@ -1,0 +1,12 @@
+
+<%= form_with model: @task, class: 'create-task' do |t| %>
+  <p>Please provide the following information to save your task to your TaskList:</p>
+
+  <%= t.label :name %>
+  <%= t.text_field :name %>
+
+  <%= t.label :description %>
+  <%= t.text_field :description %>
+
+  <%= t.submit "Save Task", class: "task-button" %>
+<% end %>

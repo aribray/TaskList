@@ -1,16 +1,10 @@
 <ul>
   <% @tasks.each do |task|%>
-  <li>
-    <a href="/tasks/<%=task.id%>"><%=task.name%></a>
-    <%#<ul>
-      <li>
-        Description: <%=task.description%>
-      <%#</li>
-      <li>
-        Status: <%=task.completion_date%>
-      <%# </li> 
-    </ul> #%>
+  <li class="task">
+    <%= link_to "#{task.name}", "/tasks/#{task.id}"%>
   </li>
-
-<%end%>
+  <%end%>
+  <li class="task">
+  <%= link_to "Add New Task", "/tasks/new"%>
+  </li>
 </ul>
