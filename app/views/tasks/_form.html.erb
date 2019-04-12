@@ -1,0 +1,30 @@
+<%= form_with model: @task, class: 'create-task' do |t| %>
+<div>
+  <%= t.label :name %>
+  <%= t.text_field :name %> 
+</div>
+
+<div>
+  <%= t.label :description %>
+  <%= t.text_field :description, size: "50" %>
+</div>
+
+<div>
+  <%= t.label :due_date %>
+  <%= t.date_select :due_date, :default => @task.due_date %>
+</div>
+
+<div class="completed">
+  <%= t.label :completed %>
+  <%= check_box 'task', 'completed', {}, 'true', 'false' %>
+  </div>
+
+<div class="completion_date">
+  <%= t.label :completion_date %>
+  <%=  t.date_select :completion_date, :default => Time.now %>
+</div>
+ 
+<div>
+  <%= t.submit "Save Task", class: "task-button" %>
+</div>
+<% end %>

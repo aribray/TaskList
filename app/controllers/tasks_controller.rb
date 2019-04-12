@@ -43,23 +43,40 @@ class TasksController < ApplicationController
     if @task.nil?
       flash[:error] = "Could not find task with id: #{params[:id]}"
       redirect_to tasks_path
-    elsif @task.update_attributes(task_params)
-      flash[:success] = "Task Updated"
-      redirect_to task_path(@task.id)
+    else @task.update_attributes(task_params)
+         flash[:success] = 'Task Updated'
+         redirect_to task_path(@task.id)
     end
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    
-    redirect_to tasks_path
+    task = Task.find_by(id: params[:id])
+
+    if task.nil?
+      head :not_found
+    else
+      task.destroy
+      redirect_to tasks_path
+    end
   end
 
+  def complete
+    @task = Task.find_by(id: params[:id])
+    if @task[:completed] == false
+      @task[:completed] = true
+      @task.completion_date = Time.now
+    else
+      @task[:completed] = false
+      @task[:completion_date] = nil
+    end
+    flash[:success] = 'Status Updated'
+    @task.save
+    redirect_to tasks_path
+  end
 
   private
 
   def task_params
-    params.permit(:name, :description, :due_date)
+    params.require(:task).permit(:name, :description, :due_date, :completed, :completion_date)
   end
 end

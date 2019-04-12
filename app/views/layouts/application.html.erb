@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TaskList</title>
+    <title>Up to the Task</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +11,15 @@
 
   <body>
   <main>
-    <h1>My Task List</h1>
+    <header>
+      <div class="container">
+        <h1>Up To The Task</h1>
+        <h2 class="secondary">Goal-Setting for the Overacheiver Hiding Deep Inside You</h2>
+      </div>
+    </header>
+      <% flash.each do |key, value| %>
+        <div class="alert alert -<%=key %>"><%=value%></div>
+    <% end %>
     <%= yield %>
   </main>
   </body>

@@ -1,14 +1,7 @@
-<%= form_with model: @task, class: 'edit-task' do |t| %>
-  <p>Let's update your Task in the TaskList! Update as little or as much information as you'd like:</p>
+<h2>Edit Task</h2>
+<p>Changing focus? No worries. It took Oprah a long time to find her stride too. Edit your Task here:</p>
 
-  <%= t.label :name %>
-  <%= t.text_field :name %>
+<%= render 'form'%>
 
-  <%= t.label :description %>
-  <%= t.text_field :description %>
-
-  <%= t.label :due_date %>
-  <%= t.date_field :due_date %>
-
-  <%= t.submit "Save Changes", class: "task-button" %>
-<% end %>
+<%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= link_to "Back to Tasks", "/tasks"%>

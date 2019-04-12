@@ -13,7 +13,28 @@
  *= require_tree .
  *= require_self
  */
+/* Fonts */
 
+ @import url('https://fonts.googleapis.com/css?family=Caveat+Brush|Just+Another+Hand|Nothing+You+Could+Do|Rancho');
+
+
+
+.container {
+    margin: 0 auto;
+    max-width: 750px;
+    padding: 0 24px;
+}
+
+header {
+  font-size: 2.5rem;
+  position: relative;
+  padding: 28px;
+  text-align: center;
+}
+
+.secondary {
+  font-size: 2rem;
+}
  body {
   background-color: whitesmoke;
  }
@@ -22,7 +43,25 @@
    display: grid;
  }
 
+ /*
+font-family: 'Just Another Hand', cursive;
+font-family: 'Caveat Brush', cursive;
+font-family: 'Rancho', cursive;
+font-family: 'Nothing You Could Do', cursive;
+*/
+
  h1 {
    text-align: center;
+   color: tomato;
+   font-family: 'Just Another Hand', cursive;
+ }
+
+ h2{
+   font-family: 'Rancho', cursive;
+ }
+
+ p {
+   font-size: 1.5rem;
+   font-family: 'Just Another Hand', cursive;
    color: tomato;
  }

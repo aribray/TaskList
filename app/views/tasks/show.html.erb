@@ -1,15 +1,28 @@
-<h2><%= @task.name %></h2>
-<ul>
-  <li>
+<h2 class="task_name"><%= @task.name %></h2>
+<ul class="task">
+  <li class="description">
     Description: <%=@task.description%>
   </li>
-  <li>
+  <li class="due_date">
     Due Date: <%=@task.due_date%>
   </li>
-  <li>
-    Status: <%=@task.completion_date%>
+  <li class="status">
+    Status: <%  if @task.completed? %>
+                  <strong>Crushed It! I'm a little bit impressed.</strong>
+                <% else %>
+                  <strong>Not Complete, but we support you.</strong>
+                <%end%>
   </li>
+
+  <%  if @task.completed? %>
+  <li class="completion_date">
+    Completion Date: <%= @task.completion_date %>            
+  </li>
+  <%end%>
 </ul>
+
+
+
 
 <%= link_to "Edit Task", edit_task_path(@task.id)%>
 <%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 

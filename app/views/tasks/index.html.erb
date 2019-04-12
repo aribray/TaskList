@@ -1,10 +1,15 @@
 <ul>
   <% @tasks.each do |task|%>
   <li class="task">
-    <%= link_to "#{task.name}", "/tasks/#{task.id}"%>
+    <%= link_to "#{task.name}", "/tasks/#{task.id}"%> <span class="center_line">|</span> <%if task.completed? %>
+                                                            <%= link_to "Mark Task Incomplete", complete_task_path(task.id), method: 'update' %>
+                                                        <%else%>
+                                                            <%= link_to "Mark Task Complete", complete_task_path(task.id), method: 'update'%>
+                                                        <%end%>
+
   </li>
   <%end%>
-  <li class="task">
+  <h3 class="new_task">
   <%= link_to "Add New Task", "/tasks/new"%>
-  </li>
+  </h3>
 </ul>

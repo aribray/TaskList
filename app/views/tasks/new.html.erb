@@ -1,15 +1,7 @@
+<h2>Create New Task</h2>
+<p>I knew you were up to the task! Create your new Task here:</p>
 
-<%= form_with model: @task, class: 'create-task' do |t| %>
-  <p>Please provide the following information to save your task to your TaskList:</p>
+<%= render 'form' %>
 
-  <%= t.label :name %>
-  <%= t.text_field :name %>
+<%= link_to 'Back to All Tasks', tasks_path %>
 
-  <%= t.label :description %>
-  <%= t.text_field :description %>
-
-  <%= t.label :due_date %>
-  <%= t.date_field :due_date %>
-
-  <%= t.submit "Save Task", class: "task-button" %>
-<% end %>

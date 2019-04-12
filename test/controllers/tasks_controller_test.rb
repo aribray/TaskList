@@ -122,11 +122,38 @@ describe TasksController do
 
   # Complete these tests for Wave 4
   describe 'destroy' do
-    # Your tests go here
+    it 'returns a 404 if the task is not found' do
+      # Arrange
+      invalid_id = 'NOT A VALID ID'
+
+      # Act - Try to do the Books#destroy action
+      expect do
+        get task_path(invalid_id)
+      end.wont_change 'Task.count'
+    end
+
+    it 'can delete a task' do
+      # Arrange - Create a task
+      new_task = Task.create(name: 'Destroy task')
+
+      expect do
+        # Act
+        delete task_path(new_task.id)
+        # Assert
+      end.must_change 'Task.count', -1
+
+      must_respond_with :redirect
+      must_redirect_to tasks_path
+    end
   end
 
   # Complete for Wave 4
   describe 'toggle_complete' do
-    # Your tests go here
+    it 'responds with a success message' do
+      # Act/Assert
+      post complete_task_path(task.id)
+     
+      must_respond_with :found
+    end
   end
 end
