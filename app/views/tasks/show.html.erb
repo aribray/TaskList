@@ -1,14 +1,14 @@
 <h2 class="task_name"><%= @task.name %></h2>
-<ul class="task">
-  <li class="description">
-    Description: <%=@task.description%>
+<ul class="show_task">
+  <li class="task_description">
+    <strong>Description:</strong> <%=@task.description%>
   </li>
-  <li class="due_date">
-    Due Date: <%=@task.due_date%>
+  <li class="task_due_date">
+     <strong>Due Date:</strong> <%=@task.due_date%>
   </li>
-  <li class="status">
-    Status: <%  if @task.completed? %>
-                  <strong>Crushed It! I'm a little bit impressed.</strong>
+  <li class="task_status">
+     <strong>Status:</strong> <%  if @task.completed? %>
+                  <strong class="done">Crushed It! I'm a little bit impressed.</strong>
                 <% else %>
                   <strong>Not Complete, but we support you.</strong>
                 <%end%>
@@ -23,8 +23,9 @@
 
 
 
-
-<%= link_to "Edit Task", edit_task_path(@task.id)%>
-<%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
-<%= link_to "Back to Tasks", "/tasks"%>
+<footer class="show_footer">
+  <%= link_to "Edit Task", edit_task_path(@task.id)%>
+  <%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
+  <%= link_to "Back to Tasks", "/tasks"%>
+</footer>
 

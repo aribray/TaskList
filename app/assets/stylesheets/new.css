@@ -1,0 +1,18 @@
+.new_task {
+  font-family: 'Just Another Hand', cursive;
+  font-size: 1rem;
+}
+
+.new_task p {
+  color: black;
+  font-size: 2rem;
+}
+
+.new_task .new_form {
+  font-size: 2rem;
+}
+
+footer {
+  font-size: 1.5rem;
+  padding-top: 20px;
+}

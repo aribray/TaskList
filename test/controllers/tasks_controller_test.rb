@@ -93,6 +93,7 @@ describe TasksController do
     end
 
     it 'will respond with redirect when attempting to edit a nonexistant task' do
+      # Act
       get edit_task_path(-1)
       # Assert
       must_respond_with :redirect
@@ -104,9 +105,15 @@ describe TasksController do
     # Note:  If there was a way to fail to save the changes to a task, that would be a great
     #        thing to test.
     it 'can update an existing task' do
-      task = Task.first
+      task_hash = {
+        task: {
+          name: 'new task',
+          description: 'new task description',
+          completion_date: nil
+        }
+      }
 
-      patch task_path(task.id)
+      patch task_path(task.id), params: task_hash
       must_respond_with :found
       must_redirect_to task_path(task.id)
     end
@@ -152,7 +159,7 @@ describe TasksController do
     it 'responds with a success message' do
       # Act/Assert
       post complete_task_path(task.id)
-     
+
       must_respond_with :found
     end
   end

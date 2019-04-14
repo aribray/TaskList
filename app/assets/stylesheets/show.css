@@ -1,0 +1,32 @@
+.task_name {
+  max-width: 250px;
+  text-align: center;
+  margin-left: 100px;
+  border: 2px dotted gray;
+}
+
+.show_task li {
+  padding: 20px;
+  font-family: "Just Another Hand", cursive;
+}
+
+.done {
+  color: tomato;
+}
+
+.show_footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.show_footer a {
+  padding-top: 20px;
+  padding: 10px;
+  border: 2px dotted gray;
+  margin: 10px;
+  color: tomato;
+}
+
+.show_footer a:hover {
+  color: gray;
+}

@@ -1,7 +1,12 @@
-<h2>Create New Task</h2>
-<p>I knew you were up to the task! Create your new Task here:</p>
+<main class="new_task">
+  <h2>Create New Task</h2>
+  <p>I knew you were up to the task! Create your new Task here:</p>
+  <div class='new_form'>
+    <%= render 'form' %>
+  </div>
+  <footer>
+    <%= link_to 'Back to All Tasks', tasks_path %>
+  </footer>
 
-<%= render 'form' %>
-
-<%= link_to 'Back to All Tasks', tasks_path %>
+</main>
 

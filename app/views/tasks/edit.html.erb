@@ -1,7 +1,13 @@
-<h2>Edit Task</h2>
-<p>Changing focus? No worries. It took Oprah a long time to find her stride too. Edit your Task here:</p>
+<main>
+  <h2 class="edit_task">Edit Task</h2>
+  <p class="change">Changing focus? No worries. <span class='emphasis'>It took Oprah a long time to find her stride too.</span> Edit your Task here:</p>
 
-<%= render 'form'%>
+  <div class='edit_form'>
+    <%= render 'form'%>
+  </div>
 
-<%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
-<%= link_to "Back to Tasks", "/tasks"%>
+  <footer class="edit_footer">
+    <%= link_to 'Delete Task', task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
+    <%= link_to "Back to Tasks", "/tasks"%>
+  </footer>
+</main>

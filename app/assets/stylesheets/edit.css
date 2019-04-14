@@ -1,0 +1,40 @@
+main {
+  font-family: "Just Another Hand", cursive;
+}
+
+.edit_task {
+  border: 2px dotted gray;
+  max-width: 250px;
+  word-spacing: 5px;
+  text-align: center;
+}
+
+.change {
+  color: gray;
+}
+
+.emphasis {
+  text-decoration: underline;
+  color: tomato;
+}
+
+.edit_form {
+  font-size: 2rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+footer a{
+  border: 2px dotted gray;
+  padding: 5px;
+  font-size: 2rem;
+  color: tomato;
+}
+
+footer a:hover {
+  color: gray;
+}

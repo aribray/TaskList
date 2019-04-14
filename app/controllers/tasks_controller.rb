@@ -6,12 +6,11 @@ class TasksController < ApplicationController
   end
 
   def show
-    task_id = params[:id].to_i
-    @task = Task.find_by(id: task_id)
+    @task = Task.find_by(id: params[:id])
 
     if @task.nil?
-      flash[:error] = "Could not find task with id: #{task_id}"
-      redirect_to action: 'index', status: 302
+      flash[:error] = "Could not find task with id: #{params[:id]}"
+      redirect_to tasks_path, status: 302
     end
   end
 
@@ -20,10 +19,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(name: params[:task][:name], description: params[:task][:description], due_date: params[:task][:due_date]) # instantiate a new task
+    task = Task.new(task_params) # instantiate a new task
     if task.save # save returns true if the database insert succeeds
       redirect_to task_path(task.id) # go to the index so we can see the task in the list
     else # save failed :(
+      flash[:error] = "Save was unsuccessful. Try again!"
       render :show # show the new task form view again
     end
   end
@@ -33,19 +33,19 @@ class TasksController < ApplicationController
 
     if @task.nil?
       flash[:error] = "Could not find task with id: #{params[:id]}"
-      redirect_to action: 'index', status: 302
+      redirect_to tasks_path, status: 302
     end
   end
 
   def update
-    @task = Task.find_by(id: params[:id])
+    task = Task.find_by(id: params[:id])
 
-    if @task.nil?
+    if task.nil?
       flash[:error] = "Could not find task with id: #{params[:id]}"
       redirect_to tasks_path
-    else @task.update_attributes(task_params)
+    else task.update_attributes(task_params)
          flash[:success] = 'Task Updated'
-         redirect_to task_path(@task.id)
+         redirect_to task_path(task.id)
     end
   end
 

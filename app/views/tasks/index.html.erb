@@ -1,15 +1,18 @@
+
+<h2 class="secondary">Goal-Setting for the Overacheiver Hiding Deep Inside You</h2>
 <ul>
   <% @tasks.each do |task|%>
   <li class="task">
-    <%= link_to "#{task.name}", "/tasks/#{task.id}"%> <span class="center_line">|</span> <%if task.completed? %>
-                                                            <%= link_to "Mark Task Incomplete", complete_task_path(task.id), method: 'update' %>
+    <%= link_to "#{task.name}", "/tasks/#{task.id}"%> <%if task.completed? %>
+                                                            <%= link_to "Mark Task Incomplete", complete_task_path(task.id), method: 'update', class: 'status' %>
                                                         <%else%>
-                                                            <%= link_to "Mark Task Complete", complete_task_path(task.id), method: 'update'%>
+                                                            <%= link_to "Mark Task Complete", complete_task_path(task.id), method: 'update', class: 'status'%>
                                                         <%end%>
 
   </li>
   <%end%>
-  <h3 class="new_task">
-  <%= link_to "Add New Task", "/tasks/new"%>
-  </h3>
 </ul>
+
+<h3 class="link">
+    <%= link_to "Add New Task", "/tasks/new"%>
+  </h3>

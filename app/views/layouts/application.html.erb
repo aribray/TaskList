@@ -10,17 +10,16 @@
   </head>
 
   <body>
-  <main>
-    <header>
-      <div class="container">
-        <h1>Up To The Task</h1>
-        <h2 class="secondary">Goal-Setting for the Overacheiver Hiding Deep Inside You</h2>
-      </div>
-    </header>
+    <div class="container">
+      <header>
+          <h1><%= link_to "Up To The Task", tasks_path %></h1>
+      </header>
+       <main>
       <% flash.each do |key, value| %>
         <div class="alert alert -<%=key %>"><%=value%></div>
-    <% end %>
-    <%= yield %>
-  </main>
+     <% end %>
+      <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
