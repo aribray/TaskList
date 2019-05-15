@@ -142,13 +142,11 @@ describe TasksController do
     it 'can delete a task' do
       # Arrange - Create a task
       new_task = Task.create(name: 'Destroy task')
-
       expect do
         # Act
         delete task_path(new_task.id)
         # Assert
       end.must_change 'Task.count', -1
-
       must_respond_with :redirect
       must_redirect_to tasks_path
     end
@@ -159,7 +157,6 @@ describe TasksController do
     it 'responds with a success message' do
       # Act/Assert
       post complete_task_path(task.id)
-
       must_respond_with :found
     end
   end
